@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PlatRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PlatRepository::class)]
@@ -24,6 +26,24 @@ class Plat
 
     #[ORM\Column(length: 255)]
     private ?string $regime = null;
+
+    /**
+     * @var Collection<int, Allergen>
+     */
+    #[ORM\ManyToMany(targetEntity: Allergen::class, inversedBy: 'plats')]
+    private Collection $allergenes;
+
+    /**
+     * @var Collection<int, Menu>
+     */
+    #[ORM\ManyToMany(targetEntity: Menu::class, mappedBy: 'plats')]
+    private Collection $menus;
+
+    public function __construct()
+    {
+        $this->allergenes = new ArrayCollection();
+        $this->menus = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -74,6 +94,57 @@ class Plat
     public function setRegime(string $regime): static
     {
         $this->regime = $regime;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Allergen>
+     */
+    public function getAllergenes(): Collection
+    {
+        return $this->allergenes;
+    }
+
+    public function addAllergene(Allergen $allergene): static
+    {
+        if (!$this->allergenes->contains($allergene)) {
+            $this->allergenes->add($allergene);
+        }
+
+        return $this;
+    }
+
+    public function removeAllergene(Allergen $allergene): static
+    {
+        $this->allergenes->removeElement($allergene);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Menu>
+     */
+    public function getMenus(): Collection
+    {
+        return $this->menus;
+    }
+
+    public function addMenu(Menu $menu): static
+    {
+        if (!$this->menus->contains($menu)) {
+            $this->menus->add($menu);
+            $menu->addPlat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMenu(Menu $menu): static
+    {
+        if ($this->menus->removeElement($menu)) {
+            $menu->removePlat($this);
+        }
 
         return $this;
     }
