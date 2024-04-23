@@ -22,7 +22,7 @@ class RegistrationController extends AbstractController
     {
         $user = $security->getUser();
         if (!$this->isGranted('ROLE_ADMIN')) {
-            throw new AccessDeniedException('Accès refusé. Vous devez être administrateur pour accéder à cette page.');
+            return $this->redirectToRoute("app_home");
         }
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
