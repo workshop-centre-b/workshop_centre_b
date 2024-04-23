@@ -19,8 +19,8 @@ class RegistrationController extends AbstractController
     #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): Response
     {
-            $user = $security->getUser();
-    if (!$this->isGranted('admin')) {
+        $user = $security->getUser();
+    if (!$this->isGranted('ROLE_ADMIN')) {
         throw new AccessDeniedException('Accès refusé. Vous devez être administrateur pour accéder à cette page.');
     }
         $user = new User();
