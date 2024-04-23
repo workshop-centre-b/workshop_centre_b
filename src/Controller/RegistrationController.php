@@ -19,6 +19,10 @@ class RegistrationController extends AbstractController
     #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): Response
     {
+            $user = $security->getUser();
+    if (!$this->isGranted('admin')) {
+        throw new AccessDeniedException('Accès refusé. Vous devez être administrateur pour accéder à cette page.');
+    }
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $createdAt = new \DatetimeImmutable('now');
@@ -39,7 +43,7 @@ class RegistrationController extends AbstractController
 
             // do anything else you need here, like send an email
 
-            return $security->login($user, AppCustomAuthenticator::class, 'main');
+            return $this->redirectToRoute("app_home");
         }
 
         return $this->render('registration/register.html.twig', [

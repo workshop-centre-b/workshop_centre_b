@@ -47,10 +47,9 @@ class AppCustomAuthenticator extends AbstractLoginFormAuthenticator
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
-
-        // For example:
-        // return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+        
+        // Remplacez "http://example.com" par l'URL vers laquelle vous souhaitez rediriger l'utilisateur après la connexion réussie.
+        return new RedirectResponse("http://localhost:8000/home");
     }
 
     protected function getLoginUrl(Request $request): string
