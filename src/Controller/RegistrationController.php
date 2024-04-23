@@ -21,9 +21,11 @@ class RegistrationController extends AbstractController
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
+        $createdAt = new \DatetimeImmutable('now');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setCreatedAt($createdAt);
             // encode the plain password
             $user->setPassword(
                     $userPasswordHasher->hashPassword(
