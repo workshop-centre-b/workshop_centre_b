@@ -1,12 +1,17 @@
 {% block header %}
-    <header>
-        <img src="{{ asset('images/logo.png')}}" alt="logo">
+    <div id="top">
+        {% if app.user %}
+            <a href=""> {{app.user.nom}} {{app.user.prenom}} </a>
+        {% endif %}
+    </div>
+    <aside id="left">
+        <img id="header_logo" src="{{ asset('images/logo.png')}}" alt="logo">
         <a href="{{ path('home')}}">Accueil</a>
         {% if app.user %}
-            <p> {{app.user.nom}} {{app.user.prenom}}</p>
+            <a href="">Inscription</a>
             <a href="{{ path('app_logout') }}"> Déconnexion </a>
         {% else %}
             <a href="{{ path('app_login') }}">Connexion</a>
         {% endif %}
-    </header>
+    </aside>
 {% endblock %}
