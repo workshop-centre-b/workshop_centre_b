@@ -49,7 +49,7 @@ class AppCustomAuthenticator extends AbstractLoginFormAuthenticator
         }
         
         // Remplacez "http://example.com" par l'URL vers laquelle vous souhaitez rediriger l'utilisateur après la connexion réussie.
-        return new RedirectResponse("http://localhost:8000/home");
+        return new RedirectResponse("/home");
     }
 
     protected function getLoginUrl(Request $request): string
