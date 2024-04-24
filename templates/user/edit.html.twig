@@ -1,16 +1,67 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Edit User{% endblock %}
+{% block page_name %} Modification Utilisateur {% endblock %}
 
 {% block body %}
-    <h1>Edit User</h1>
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+<style>
+a {
+	margin-bottom: 15px;
+}
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+#edit_user_button{
+	display: flex;
+    justify-content: space-between;
+}
+</style>
 
-    {{ include('user/_delete_form.html.twig') }}
+{{ form_errors(form) }}
 
+{{ form_start(form, {'attr': {'class': 'needs-validation', 'id': 'form_new_user'}}) }}
+    <a href="{{ path('app_user_index') }}" class="btn btn-primary">Retour liste utilisateurs</a>
 
-    
+    <div class="mb-3">
+        {{ form_label(form.password, 'Nouveau mot de passe', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.password, {'attr': {'class': 'form-control', 'id': 'exampleInputPassword1'}}) }}
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form_label(form.nom, null, {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form_label(form.prenom, null, {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div id="additional-fields" style="display: none; margin-bottom: 15px;">
+        {{ form_label(form.formation, null, {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.formation, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+	<div id="additional-fields" style="display: none; margin-bottom: 15px;">
+        {{ form_label(form.email, null, {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+	<div id="additional-fields" style="display: none; margin-bottom: 15px;">
+        {{ form_label(form.roles, null, {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.roles, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+	
+	<div id="edit_user_button">
+        <div>
+        {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+        </div>
+        <div>
+        {{ include('user/_delete_form.html.twig') }}
+        </div>
+	</div>
+
+{{ form_end(form) }}		
+
 {% endblock %}

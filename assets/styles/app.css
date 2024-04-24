@@ -1,25 +1,23 @@
- {
+{
     outline: 1px dashed purple;
-}
-
-body {  
-    background-color: white;
 }
 
 /* top header */
 
 #header_top {
     height: 10vh;
-    width: 100%;
+    width: 85vw;
     background-color: grey;
     opacity: 0.8;
     display: flex;
+    position: fixed;
+    margin-left: 20vw;
 }
 
 #header_top > h1 {
-    width: 20vw;
     margin: 0;
     padding: 0;
+    padding-left: 10px;
     color: white;
     font-size: 1.5vw;
     text-align: center;
@@ -33,7 +31,8 @@ body {
     align-items: center;
     color: white;
     font-size: 1.5vw;
-    margin-left: 25%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #header_top > div > a {
@@ -48,7 +47,6 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
-    margin-left: auto;
 }
 
 #user > svg {
@@ -62,16 +60,17 @@ body {
 
 #header_left {
     width: 20vw;
-    height: 90vh;
+    height: 100vh;
     background-color: grey;
     opacity: 0.8;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: fixed;
 }
 
 #header_logo {
-    width: 40%;
+    width: 60%;
     height: auto;
     margin: 30px;
     border-radius: 3px;
@@ -96,13 +95,23 @@ body {
 
 /* main content */
 
-#container {
+body {
     display: flex;
+    background-color: rgb(255, 255, 255);
+    width: 100vw;
+    height: 100%;
 }
 
 main {
-    margin: 15px;
     width: 100%;
+    height: 100%;
+}
+
+section {
+    padding: 15px;
+    width: 100%;
+    height: 800vh;
+    margin-top: 10vh;
 }
 
 #login_form {
@@ -113,4 +122,51 @@ main {
 
 #login_form > button {
     margin-top: 20px;
+}
+
+/* Form new user */
+
+#form_new_user {
+    margin: 9vh 20vw 0 20vw;
+    padding:  20px 30px 20px 30px;
+    border-radius: 5px;
+    background-color: grey;
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+tr, tr td {
+    height: 20px;
+}
+td {
+    text-align: center;
+}
+tr:nth-child(odd) td:not(.headcol) {
+    border-bottom: 1px solid #e8e8e8;
+}
+
+tr:nth-child(even) td:not(.headcol) {
+    border-bottom: 1px solid #eee;
+}
+
+tr td {
+    border-right: 1px solid #eee;
+    padding: 0;
+    white-space: none;
+    word-wrap: nowrap;
+}
+
+tbody tr td {
+    position: relative;
+    vertical-align: top;
+    height: 40px;
+    padding: 0.25rem 0.25rem 0 0.25rem;
+    width: auto;
 }
