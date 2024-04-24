@@ -15,9 +15,25 @@
                             class="navbar-brand">
                             {% if app.request.attributes.get('_route') == 'app_home' %}
                                 Home
-                            {% elseif app.request.attributes.get('_route') == 'app_menu' %}
+                            {% elseif app.request.attributes.get('_route') == 'app_menu_index' %}
                                 Gestion des Menus
-                            {% elseif app.request.attributes.get('_route') == 'app_plat' %}
+                            {% elseif app.request.attributes.get('_route') == 'app_plat_index' %}
+                                Gestion des Plats
+                            {% elseif app.request.attributes.get('_route') == 'app_menu_new' %}
+                                Gestion des Menus
+                            {% elseif app.request.attributes.get('_route') == 'app_plat_new' %}
+                                Gestion des Plats
+                            {% elseif app.request.attributes.get('_route') == 'app_menu_show' %}
+                                Gestion des Menus
+                            {% elseif app.request.attributes.get('_route') == 'app_plat_show' %}
+                                Gestion des Plats
+                            {% elseif app.request.attributes.get('_route') == 'app_menu_edit' %}
+                                Gestion des Menus
+                            {% elseif app.request.attributes.get('_route') == 'app_plat_edit' %}
+                                Gestion des Plats
+                            {% elseif app.request.attributes.get('_route') == 'app_menu_delete' %}
+                                Gestion des Menus
+                            {% elseif app.request.attributes.get('_route') == 'app_plat_delete' %}
                                 Gestion des Plats
                             {% endif %}
                         </a>

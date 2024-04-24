@@ -2,6 +2,13 @@ body {
     background-color: skyblue;
 }
 
+.link_btn {
+    width: 250px;
+    height: 500px;
+    display: block;
+    text-decoration: none;
+}
+
 .add {
     width: 250px;
     height: 500px;
