@@ -5,8 +5,43 @@
 {% block body %}
     <h1>Create new User</h1>
 
-    {{ include('user/_form.html.twig') }}
-    
+    {{ form_errors(form) }}
+
+    {{ form_start(form) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.password, {
+            label: 'Password'
+        }) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.prenom) }}
+        {{ form_row(form.roles) }}
+
+        <div id="additional-fields" style="display: none;">
+            {{ form_row(form.formation) }}
+        </div>
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(form) }}
 
     <a href="{{ path('app_user_index') }}">back to list</a>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const rolesSelect = document.getElementById('user_roles');
+    const additionalFieldContainer = document.getElementById('additional-fields');
+
+    function toggleAdditionalField() {
+        const selectedRoles = Array.from(rolesSelect.selectedOptions).map(opt => opt.value);
+        console.log(selectedRoles)
+        if (selectedRoles.includes('0')) {
+            additionalFieldContainer.style.display = 'block';
+        } else {
+            additionalFieldContainer.style.display = 'none';
+        }
+    }
+
+    rolesSelect.addEventListener('change', toggleAdditionalField);
+    toggleAdditionalField(); // Pour initialiser à la charge du document
+});
+</script>
+
 {% endblock %}

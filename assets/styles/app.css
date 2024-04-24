@@ -1,27 +1,116 @@
-{
-    outline: 1px dashed red;
+ {
+    outline: 1px dashed purple;
 }
 
 body {  
     background-color: white;
 }
 
-#top {
+/* top header */
 
-    width: 100vw;
+#header_top {
     height: 10vh;
-    background-color: red;
-    opacity: 0.5;
+    width: 100%;
+    background-color: grey;
+    opacity: 0.8;
+    display: flex;
 }
 
-#left {
+#header_top > h1 {
+    width: 20vw;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 1.5vw;
+    text-align: center;
+    line-height: 10vh;
+}
+
+#header_top > h2 {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.5vw;
+    margin-left: 25%;
+}
+
+#header_top > div > a {
+    text-decoration: none;
+    color: white;
+}
+
+#user {
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+#user > svg {
+    margin: 20px;
+    height: 60%;
+    width: auto;
+    color: white;
+}
+
+/* left header */
+
+#header_left {
     width: 20vw;
     height: 90vh;
-    background-color: blue;
-    opacity: 0.5;
+    background-color: grey;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #header_logo {
-    width: 30%;
+    width: 40%;
     height: auto;
+    margin: 30px;
+    border-radius: 3px;
+}
+
+#header_left > a {
+    text-decoration: none;
+    color: white;
+    font-size: 120%;
+    margin: 10px;
+}
+
+#header_left > :last-child {
+    margin-top: auto;
+    margin-bottom: 30px;
+}
+
+#header_left > :not(:last-child):not(img) {
+    padding: 10px;
+    border-bottom: 2px solid white;
+}
+
+/* main content */
+
+#container {
+    display: flex;
+}
+
+main {
+    margin: 15px;
+    width: 100%;
+}
+
+#login_form {
+    display: flex;
+    flex-direction: column;
+    margin: 10vh 20vh 0 20vh;
+}
+
+#login_form > button {
+    margin-top: 20px;
 }
