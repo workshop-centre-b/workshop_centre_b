@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class MenuType extends AbstractType
 {
@@ -18,9 +19,28 @@ class MenuType extends AbstractType
             ->add('date', null, [
                 'widget' => 'single_text'
             ])
-            ->add('service')
+            ->add('service', ChoiceType::class, [
+                'label' => 'Service',
+                'choices' => [
+                    'Midi' => 'Midi',
+                    'Soir' => 'Soir'
+                ],
+                'label_attr' => [
+                    'class' => ''
+                ],
+                'attr' => [
+                    'class' => ''
+                ],
+            ])
             ->add('optionPlat')
             ->add('entree', EntityType::class, [
+                'label' => "Entrée",
+                'label_attr' => [
+                    'class' => ''
+                ],
+                'attr' => [
+                    'class' => ''
+                ],
                 'class' => Plat::class,
                 'choice_label' => 'nom',
                 'query_builder' => function (PlatRepository $er) {
@@ -30,6 +50,13 @@ class MenuType extends AbstractType
                 },
             ])
             ->add('platUn', EntityType::class, [
+                'label' => "Plat numéro 1",
+                'label_attr' => [
+                    'class' => ''
+                ],
+                'attr' => [
+                    'class' => ''
+                ],
                 'class' => Plat::class,
                 'choice_label' => 'nom',
                 'query_builder' => function (PlatRepository $er) {
@@ -39,6 +66,13 @@ class MenuType extends AbstractType
                 },
             ])
             ->add('platDeux', EntityType::class, [
+                'label' => "Plat numéro 2",
+                'label_attr' => [
+                    'class' => ''
+                ],
+                'attr' => [
+                    'class' => ''
+                ],
                 'class' => Plat::class,
                 'choice_label' => 'nom',
                 'query_builder' => function (PlatRepository $er) {
@@ -48,6 +82,13 @@ class MenuType extends AbstractType
                 },
             ])
             ->add('platTrois', EntityType::class, [
+                'label' => "Plat numéro 3 (Optionnel)",
+                'label_attr' => [
+                    'class' => ''
+                ],
+                'attr' => [
+                    'class' => ''
+                ],
                 'class' => Plat::class,
                 'choice_label' => 'nom',
                 'query_builder' => function (PlatRepository $er) {
@@ -57,6 +98,13 @@ class MenuType extends AbstractType
                 },
             ])
             ->add('dessert', EntityType::class, [
+                'label' => "Dessert",
+                'label_attr' => [
+                    'class' => ''
+                ],
+                'attr' => [
+                    'class' => ''
+                ],
                 'class' => Plat::class,
                 'choice_label' => 'nom',
                 'query_builder' => function (PlatRepository $er) {
