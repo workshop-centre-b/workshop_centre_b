@@ -25,12 +25,6 @@ class Menu
     #[ORM\Column(length: 255)]
     private ?string $optionPlat = null;
 
-    /**
-     * @var Collection<int, Plat>
-     */
-    #[ORM\ManyToMany(targetEntity: Plat::class, inversedBy: 'menus')]
-    private Collection $plats;
-
     public function __construct()
     {
         $this->plats = new ArrayCollection();
@@ -73,30 +67,6 @@ class Menu
     public function setOptionPlat(string $optionPlat): static
     {
         $this->optionPlat = $optionPlat;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Plat>
-     */
-    public function getPlats(): Collection
-    {
-        return $this->plats;
-    }
-
-    public function addPlat(Plat $plat): static
-    {
-        if (!$this->plats->contains($plat)) {
-            $this->plats->add($plat);
-        }
-
-        return $this;
-    }
-
-    public function removePlat(Plat $plat): static
-    {
-        $this->plats->removeElement($plat);
 
         return $this;
     }
