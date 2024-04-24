@@ -2,6 +2,44 @@ body {
     background-color: #fff;
 }
 
+.overlay_login {
+    position: relative;
+    background-image: url('/image/chef-cuisine.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.overlay_login::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.overlay_register {
+    position: relative;
+    background-image: url('/image/cantine-étudiant.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.overlay_register::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
 .back {
     display: flex;
     flex-direction: row;
