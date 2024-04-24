@@ -1,3 +1,27 @@
-body {
-    background-color: skyblue;
+{
+    outline: 1px dashed red;
+}
+
+body {  
+    background-color: white;
+}
+
+#top {
+
+    width: 100vw;
+    height: 10vh;
+    background-color: red;
+    opacity: 0.5;
+}
+
+#left {
+    width: 20vw;
+    height: 90vh;
+    background-color: blue;
+    opacity: 0.5;
+}
+
+#header_logo {
+    width: 30%;
+    height: auto;
 }
