@@ -2,12 +2,13 @@
 
 namespace App\Form;
 
-use App\Entity\Allergen;
 use App\Entity\Plat;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Allergen;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class PlatType extends AbstractType
 {
@@ -16,8 +17,21 @@ class PlatType extends AbstractType
         $builder
             ->add('nom')
             ->add('composition')
-            ->add('type')
-            ->add('regime')
+            ->add('type', ChoiceType::class, [
+                'choices' => [
+                    'Entree' => 'Entree',
+                    'Plat' => 'Plat',
+                    'Dessert' => 'Dessert'
+                ]
+            ])
+            ->add('regime', ChoiceType::class, [
+                'choices' => [
+                    'Viande' => 'Viande',
+                    'Poisson' => 'Poisson',
+                    'Végétarien' => 'Végétarien',
+                    'Autre' => 'Autre'
+                ]
+            ])
             ->add('allergenes', EntityType::class, [
                 'class' => Allergen::class,
 'choice_label' => 'id',
