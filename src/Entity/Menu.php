@@ -22,7 +22,7 @@ class Menu
     #[ORM\Column(length: 255)]
     private ?string $service = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $optionPlat = null;
 
     #[ORM\ManyToOne(inversedBy: 'menus')]
