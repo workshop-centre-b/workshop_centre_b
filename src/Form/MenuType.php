@@ -17,7 +17,13 @@ class MenuType extends AbstractType
     {
         $builder
             ->add('date', null, [
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'label_attr' => [
+                    'class' => 'form-label m-1'
+                ],
+                'attr' => [
+                    'class' => 'form-control m-1'
+                ],
             ])
             ->add('service', ChoiceType::class, [
                 'label' => 'Service',
@@ -26,19 +32,19 @@ class MenuType extends AbstractType
                     'Soir' => 'Soir'
                 ],
                 'label_attr' => [
-                    'class' => ''
+                    'class' => 'form-label m-1'
                 ],
                 'attr' => [
-                    'class' => ''
+                    'class' => 'form-control m-1'
                 ],
             ])
             ->add('entree', EntityType::class, [
                 'label' => "Entrée",
                 'label_attr' => [
-                    'class' => ''
+                    'class' => 'form-label'
                 ],
                 'attr' => [
-                    'class' => ''
+                    'class' => 'form-control'
                 ],
                 'class' => Plat::class,
                 'choice_label' => 'nom',
@@ -51,10 +57,10 @@ class MenuType extends AbstractType
             ->add('platUn', EntityType::class, [
                 'label' => "Plat Viande",
                 'label_attr' => [
-                    'class' => ''
+                    'class' => 'form-label'
                 ],
                 'attr' => [
-                    'class' => ''
+                    'class' => 'form-control'
                 ],
                 'class' => Plat::class,
                 'choice_label' => 'nom',
@@ -67,10 +73,10 @@ class MenuType extends AbstractType
             ->add('platDeux', EntityType::class, [
                 'label' => "Plat Poisson",
                 'label_attr' => [
-                    'class' => ''
+                    'class' => 'form-label'
                 ],
                 'attr' => [
-                    'class' => ''
+                    'class' => 'form-control'
                 ],
                 'class' => Plat::class,
                 'choice_label' => 'nom',
@@ -83,10 +89,10 @@ class MenuType extends AbstractType
             ->add('platTrois', EntityType::class, [
                 'label' => "Plat Végétarien (Optionnel)",
                 'label_attr' => [
-                    'class' => ''
+                    'class' => 'form-label'
                 ],
                 'attr' => [
-                    'class' => ''
+                    'class' => 'form-control'
                 ],
                 'class' => Plat::class,
                 'choice_label' => 'nom',
@@ -99,10 +105,10 @@ class MenuType extends AbstractType
             ->add('dessert', EntityType::class, [
                 'label' => "Dessert",
                 'label_attr' => [
-                    'class' => ''
+                    'class' => 'form-label'
                 ],
                 'attr' => [
-                    'class' => ''
+                    'class' => 'form-control'
                 ],
                 'class' => Plat::class,
                 'choice_label' => 'nom',

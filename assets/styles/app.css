@@ -1,5 +1,5 @@
 body {
-    background-color: #fff;
+    background-color: #cacaca;
 }
 
 .overlay_login {
@@ -44,6 +44,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .link_btn {
@@ -129,12 +130,20 @@ body {
     text-align: center;
     width: 200px;
     margin-left: 5px;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
-.menu_optionPlat {
-    margin-left: 1.25em;
-    margin-top: 0;
-    margin-bottom: 1em;
+.btns {
+    display: flex;
+    flex-direction: row;
+    padding-left: 1em;
+    justify-content: flex-start;
+}
+
+.delete_btn {
+    margin-right: 1em;
 }
 
 .show_btn {
@@ -177,4 +186,7 @@ body {
     text-align: center;
     width: 200px;
     margin-left: 20px;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }

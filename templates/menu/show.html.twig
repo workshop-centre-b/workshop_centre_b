@@ -1,34 +1,95 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Menu{% endblock %}
+                {% block title %}
+                    Menu
+                {% endblock %}
 
-{% block body %}
-    <h1>Menu</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ menu.id }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ menu.date ? menu.date|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Service</th>
-                <td>{{ menu.service }}</td>
-            </tr>
-            <tr>
-                <th>OptionPlat</th>
-                <td>{{ menu.optionPlat }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_menu_index') }}">back to list</a>
-
-    <a href="{{ path('app_menu_edit', {'id': menu.id}) }}">edit</a>
-
-    {{ include('menu/_delete_form.html.twig') }}
-{% endblock %}
+                {% block body %}
+                    <table
+                        class="table">
+                        <tbody>
+                            <tr>
+                                <th>
+                                    Menu n°
+                                </th>
+                                <td>
+                                    {{ menu.id }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Date
+                                </th>
+                                <td>
+                                    {{ menu.date ? menu.date|date('Y-m-d') : '' }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Service
+                                </th>
+                                <td>
+                                    {{ menu.service }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Entrée
+                                </th>
+                                <td>
+                                    {{ menu.entree.nom }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Plat Viande
+                                </th>
+                                <td>
+                                    {{ menu.platUn.nom }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Plat Poisson
+                                </th>
+                                <td>
+                                    {{ menu.platDeux.nom }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Plat Végétarien
+                                </th>
+                                <td>
+                                    {{ menu.platTrois.nom }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Dessert
+                                </th>
+                                <td>
+                                    {{ menu.dessert.nom }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div
+                        class="btns">
+                        <a
+                            href="{{ path('app_menu_index', {'id': menu.id}) }}">
+                            <button
+                                class="btn btn-dark delete_btn">
+                                Retour à la liste
+                            </button>
+                        </a>
+                        <a
+                            href="{{ path('app_menu_edit', {'id': menu.id}) }}">
+                            <button
+                                class="btn btn-primary delete_btn">
+                                Modifier le menu
+                            </button>
+                        </a>
+                        {{ include('menu/_delete_form.html.twig') }}
+                    </div>
+                {% endblock %}
