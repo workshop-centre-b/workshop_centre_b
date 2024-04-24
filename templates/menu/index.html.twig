@@ -5,74 +5,61 @@
                 {% endblock %}
 
                 {% block body %}
-                    <table
-                        class="table">
-                        <thead>
-                            <tr>
-                                <th>
-                                    Id
-                                </th>
-                                <th>
-                                    Date
-                                </th>
-                                <th>
-                                    Service
-                                </th>
-                                <th>
-                                    OptionPlat
-                                </th>
-                                <th>
-                                    actions
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for menu in menus %}
-                                <tr>
-                                    <td>
-                                        {{ menu.id }}
-                                    </td>
-                                    <td>
-                                        {{ menu.date ? menu.date|date('Y-m-d') : '' }}
-                                    </td>
-                                    <td>
-                                        {{ menu.service }}
-                                    </td>
-                                    <td>
-                                        {{ menu.optionPlat }}
-                                    </td>
-                                    <td>
-                                        <a
-                                            href="{{ path('app_menu_show', {'id': menu.id}) }}">
-                                            show
-                                        </a>
-                                        <a
-                                            href="{{ path('app_menu_edit', {'id': menu.id}) }}">
-                                            edit
-                                        </a>
-                                    </td>
-                                </tr>
-                            {% else %}
-                                <tr>
-                                    <td
-                                        colspan="5">
-                                        no records found
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-
-                    <a
-                        href="{{ path('app_menu_new') }}" class="link_btn m-5">
-                        <button
-                            class="add">
-                            <span
-                                class="add_span">
-                                +
-                            </span>
+                    <div
+                        class="back">
+                        {% for menu in menus %}
                             <div
-                                class="add_div"></div>
-                        </button>
-                    </a>
+                                class="menu m-5">
+                                <div
+                                    class="menu_name">
+                                    <h2>
+                                        Menu n°
+                                        {{ menu.id }}
+                                    </h2>
+                                </div>
+                                <div
+                                    class="menu_date m-sm-3">
+                                    <h4>
+                                        Service
+                                    </h4>
+                                    <h5>
+                                        {{ menu.date ? menu.date|date('d-m-Y') : '' }}
+                                    </h5>
+                                    <h5>
+                                        {{ menu.service }}
+                                    </h5>
+                                </div>
+                                <a
+                                    class="show_btn"
+                                    href="{{ path('app_menu_show', {'id': menu.id}) }}">
+                                    <button
+                                        class="btn btn-dark">
+                                        Montrer le détail du menu
+                                    </button>
+                                </a>
+                                <a
+                                    class="modif_btn"
+                                    href="{{ path('app_menu_edit', {'id': menu.id}) }}">
+                                    <button
+                                        class="btn btn-primary">
+                                        Modifier le menu
+                                    </button>
+                                </a>
+                            </div>
+                            {% else %}
+                        {% endfor %}
+
+                        <a
+                            href="{{ path('app_menu_new') }}" class="link_btn m-5">
+                            <button
+                                class="add">
+                                <span
+                                    class="add_span">
+                                    +
+                                </span>
+                                <div
+                                    class="add_div"></div>
+                            </button>
+                        </a>
+                    </div>
                 {% endblock %}

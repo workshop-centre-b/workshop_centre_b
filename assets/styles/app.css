@@ -2,6 +2,12 @@ body {
     background-color: skyblue;
 }
 
+.back {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
 .link_btn {
     width: 250px;
     height: 500px;
@@ -35,6 +41,7 @@ body {
     background-color: #55cfcd;
     border: solid 5px black;
 }
+
 .add_span {
     position: relative;
     z-index: 2;
@@ -43,4 +50,93 @@ body {
     margin-top: 150px;
     margin-bottom: 12px;
     max-height: 25px !important;
+}
+
+.menu {
+    width: 250px !important;
+    height: 500px !important;
+    padding: 0;
+    border-radius: 25px;
+    background: #1e7b7d;
+    border: solid 5px black;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu_name {
+    background-color: #55cfcd;
+    border-radius: 5px;
+    border: black 2px solid;
+    text-align: center;
+    margin-top: 1em;
+    width: 200px;
+    margin-left: 20px;
+}
+
+.menu_optionPlat,
+.menu_date h4 {
+    background-color: #55cfcd;
+    border-radius: 5px;
+    border: black 2px solid;
+    text-align: center;
+    margin-top: 1em;
+    width: 200px;
+    margin-left: 5px;
+}
+
+.menu_date h5 {
+    background-color: #3aa6aa;
+    border-radius: 5px;
+    border: black 2px solid;
+    text-align: center;
+    width: 200px;
+    margin-left: 5px;
+}
+
+.menu_optionPlat {
+    margin-left: 1.25em;
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+.show_btn {
+    margin: 3em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.modif_btn {
+    margin: 3em;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+
+.plat_name {
+    background-color: #55cfcd;
+    border-radius: 5px;
+    border: black 2px solid;
+    text-align: center;
+    margin-top: 0.5em;
+    width: 200px;
+    margin-left: 20px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+}
+
+.plat_info h4 {
+    background-color: #55cfcd;
+    border-radius: 5px;
+    border: black 2px solid;
+    text-align: center;
+    width: 200px;
+    margin-left: 20px;
+}
+
+.plat_info h5 {
+    background-color: #3aa6aa;
+    border-radius: 5px;
+    border: black 2px solid;
+    text-align: center;
+    width: 200px;
+    margin-left: 20px;
 }

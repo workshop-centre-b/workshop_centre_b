@@ -32,7 +32,6 @@ class MenuType extends AbstractType
                     'class' => ''
                 ],
             ])
-            ->add('optionPlat')
             ->add('entree', EntityType::class, [
                 'label' => "Entrée",
                 'label_attr' => [
@@ -50,7 +49,7 @@ class MenuType extends AbstractType
                 },
             ])
             ->add('platUn', EntityType::class, [
-                'label' => "Plat numéro 1",
+                'label' => "Plat Viande",
                 'label_attr' => [
                     'class' => ''
                 ],
@@ -66,7 +65,7 @@ class MenuType extends AbstractType
                 },
             ])
             ->add('platDeux', EntityType::class, [
-                'label' => "Plat numéro 2",
+                'label' => "Plat Poisson",
                 'label_attr' => [
                     'class' => ''
                 ],
@@ -82,7 +81,7 @@ class MenuType extends AbstractType
                 },
             ])
             ->add('platTrois', EntityType::class, [
-                'label' => "Plat numéro 3 (Optionnel)",
+                'label' => "Plat Végétarien (Optionnel)",
                 'label_attr' => [
                     'class' => ''
                 ],
