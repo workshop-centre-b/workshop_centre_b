@@ -1,22 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Inscription</h1>
+<div class="overlay_register">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="card-body">
+                        <h1 class="mb-4 font-weight-normal text-center">Inscription</h1>
 
-    {{ form_errors(registrationForm) }}
+                        {{ form_errors(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.nom) }}
-        {{ form_row(registrationForm.prenom) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.formation) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+                        {{ form_start(registrationForm, {'attr': {'class': 'row g-3'}}) }}
+                            <div class="col-md-6">
+                                {{ form_row(registrationForm.nom, {'label': 'Nom', 'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(registrationForm.prenom, {'label': 'Prénom', 'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(registrationForm.email, {'label': 'Email', 'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(registrationForm.formation, {'label': 'Formation', 'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(registrationForm.plainPassword, {'label': 'Mot de passe', 'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    {{ form_row(registrationForm.agreeTerms, {'label_attr': {'class': 'form-check-label'}, 'attr': {'class': 'form-check-input'}}) }}
+                                </div>
+                            </div>
 
-        <button type="submit" class="btn">Valider</button>
-    {{ form_end(registrationForm) }}
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-lg btn-primary mt-4">Valider</button>
+                            </div>
+                        {{ form_end(registrationForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
