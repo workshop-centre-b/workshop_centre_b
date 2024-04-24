@@ -5,80 +5,85 @@
                 {% endblock %}
 
                 {% block body %}
-                    <table
-                        class="table">
-                        <thead>
-                            <tr>
-                                <th>
-                                    Id
-                                </th>
-                                <th>
-                                    Nom
-                                </th>
-                                <th>
-                                    Composition
-                                </th>
-                                <th>
-                                    Type
-                                </th>
-                                <th>
-                                    Regime
-                                </th>
-                                <th>
-                                    actions
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for plat in plats %}
-                                <tr>
-                                    <td>
-                                        {{ plat.id }}
-                                    </td>
-                                    <td>
-                                        {{ plat.nom }}
-                                    </td>
-                                    <td>
-                                        {{ plat.composition }}
-                                    </td>
-                                    <td>
-                                        {{ plat.type }}
-                                    </td>
-                                    <td>
-                                        {{ plat.regime }}
-                                    </td>
-                                    <td>
-                                        <a
-                                            href="{{ path('app_plat_show', {'id': plat.id}) }}">
-                                            show
-                                        </a>
-                                        <a
-                                            href="{{ path('app_plat_edit', {'id': plat.id}) }}">
-                                            edit
-                                        </a>
-                                    </td>
-                                </tr>
-                            {% else %}
-                                <tr>
-                                    <td
-                                        colspan="6">
-                                        no records found
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-
-                    <a
-                        href="{{ path('app_menu_new') }}" class="link_btn m-5">
-                        <button
-                            class="add">
-                            <span
-                                class="add_span">
-                                +
-                            </span>
+                    <div
+                        class="back">
+                        {% for plat in plats %}
                             <div
-                                class="add_div"></div>
-                        </button>
-                    </a>
+                                class="menu m-5">
+                                <div
+                                    class="plat_name">
+                                    <h3>
+                                        Plat n°
+                                        {{ plat.id }}
+                                    </h3>
+                                </div>
+                                <div
+                                    class="plat_info">
+                                    <h4>
+                                        Nom
+                                    </h4>
+                                    <h5>
+                                        {{ plat.nom }}
+                                    </h5>
+                                </div>
+                                <div
+                                    class="plat_info">
+                                    <h4>
+                                        Composition
+                                    </h4>
+                                    <h5>
+                                        {{ plat.composition }}
+                                    </h5>
+                                </div>
+                                <div
+                                    class="plat_info">
+                                    <h4>
+                                        Type
+                                    </h4>
+                                    <h5>
+                                        {{ plat.type }}
+                                    </h5>
+                                </div>
+                                <div
+                                    class="plat_info">
+                                    <h4>
+                                        Régime
+                                    </h4>
+                                    <h5>
+                                        {{ plat.regime }}
+                                    </h5>
+                                </div>
+                                <a
+                                    class="show_btn"
+                                    href="{{ path('app_plat_show', {'id': plat.id}) }}">
+                                    <button
+                                        class="btn btn-dark">
+                                        Montrer le détail du plat
+                                    </button>
+                                </a>
+                                <a
+                                    class="modif_btn"
+                                    href="{{ path('app_plat_edit', {'id': plat.id}) }}">
+                                    <button
+                                        class="btn btn-primary">
+                                        Modifier le plat
+                                    </button>
+                                </a>
+                            </div>
+                            {% else %}
+                        {% endfor %}
+
+                        <a
+                            href="{{ path('app_plat_new') }}" class="link_btn m-5">
+                            <button
+                                class="add">
+                                <span
+                                    class="add_span">
+                                    +
+                                </span>
+                                <div
+                                    class="add_div"></div>
+                            </button>
+                        </a>
+                    </div>
                 {% endblock %}
