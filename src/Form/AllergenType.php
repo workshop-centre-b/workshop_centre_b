@@ -15,11 +15,6 @@ class AllergenType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('plats', EntityType::class, [
-                'class' => Plat::class,
-'choice_label' => 'id',
-'multiple' => true,
-            ])
         ;
     }
 

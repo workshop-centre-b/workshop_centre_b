@@ -34,7 +34,7 @@ class PlatType extends AbstractType
             ])
             ->add('allergenes', EntityType::class, [
                 'class' => Allergen::class,
-'choice_label' => 'id',
+'choice_label' => 'nom',
 'multiple' => true,
             ])
         ;

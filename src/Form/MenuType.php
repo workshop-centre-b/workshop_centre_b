@@ -22,7 +22,7 @@ class MenuType extends AbstractType
             ->add('optionPlat')
             ->add('entree', EntityType::class, [
                 'class' => Plat::class,
-                'choice_label' => 'id',
+                'choice_label' => 'nom',
                 'query_builder' => function (PlatRepository $er) {
                     return $er->createQueryBuilder('p')
                         ->where('p.type = :type')
@@ -31,7 +31,7 @@ class MenuType extends AbstractType
             ])
             ->add('platUn', EntityType::class, [
                 'class' => Plat::class,
-                'choice_label' => 'id',
+                'choice_label' => 'nom',
                 'query_builder' => function (PlatRepository $er) {
                     return $er->createQueryBuilder('p')
                         ->where('p.type = :type')
@@ -40,7 +40,7 @@ class MenuType extends AbstractType
             ])
             ->add('platDeux', EntityType::class, [
                 'class' => Plat::class,
-                'choice_label' => 'id',
+                'choice_label' => 'nom',
                 'query_builder' => function (PlatRepository $er) {
                     return $er->createQueryBuilder('p')
                         ->where('p.type = :type')
@@ -49,7 +49,7 @@ class MenuType extends AbstractType
             ])
             ->add('platTrois', EntityType::class, [
                 'class' => Plat::class,
-                'choice_label' => 'id',
+                'choice_label' => 'nom',
                 'query_builder' => function (PlatRepository $er) {
                     return $er->createQueryBuilder('p')
                         ->where('p.type = :type')
@@ -58,7 +58,7 @@ class MenuType extends AbstractType
             ])
             ->add('dessert', EntityType::class, [
                 'class' => Plat::class,
-                'choice_label' => 'id',
+                'choice_label' => 'nom',
                 'query_builder' => function (PlatRepository $er) {
                     return $er->createQueryBuilder('p')
                         ->where('p.type = :type')
