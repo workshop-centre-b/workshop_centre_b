@@ -37,6 +37,12 @@
                                 Gestion des Plats
                             {% elseif app.request.attributes.get('_route') == 'app_admin' %}
                                 Menu administrateur
+                            {% elseif app.request.attributes.get('_route') == 'app_my_profil' %}
+                                Mon profil
+                            {% elseif app.request.attributes.get('_route') == 'app_my_profil_edit' %}
+                                Mon profil
+                            {% elseif app.request.attributes.get('_route') == 'app_my_profil_reset_password' %}
+                                Mon profil
                             {% endif %}
                         </a>
                         <div
@@ -71,6 +77,14 @@
                                         </a>
                                     </li>
                                     {% if app.user %}
+                                    <li
+                                        class="nav-item">
+                                        <a
+                                            class="nav-link active"
+                                            href="{{path('app_my_profil')}}">
+                                            Mon profil
+                                        </a>
+                                    </li>
                                     <li
                                         class="nav-item">
                                         <a
