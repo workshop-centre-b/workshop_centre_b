@@ -7,10 +7,7 @@
 
     {{ include('user/_form.html.twig') }}
 
-    <a href="{{ path('app_user_index_personnel') }}">
-        <button class="btn btn-dark">Liste du personnel</button>
-    </a>
-    <a href="{{ path('app_user_index_eleve') }}">
-        <button class="btn btn-dark">Liste des elèves</button>
+    <a href="{{ path('app_admin') }}">
+        <button class="btn btn-dark">retour</button>
     </a>
 {% endblock %}

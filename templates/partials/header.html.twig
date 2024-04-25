@@ -35,6 +35,8 @@
                                 Gestion des Menus
                             {% elseif app.request.attributes.get('_route') == 'app_plat_delete' %}
                                 Gestion des Plats
+                            {% elseif app.request.attributes.get('_route') == 'app_admin' %}
+                                Menu administrateur
                             {% endif %}
                         </a>
                         <div
@@ -68,6 +70,7 @@
                                             Home
                                         </a>
                                     </li>
+                                    {% if app.user %}
                                     <li
                                         class="nav-item">
                                         <a
@@ -84,6 +87,40 @@
                                             Gestion des Plats
                                         </a>
                                     </li>
+                                    <li
+                                        class="nav-item">
+                                        <a
+                                            class="nav-link active"
+                                            href="{{path('app_admin')}}">
+                                            Menu administrateur
+                                        </a>
+                                    </li>
+                                    <li
+                                        class="nav-item">
+                                        <a
+                                            class="nav-link active"
+                                            href="{{path('app_logout')}}">
+                                            Deconnexion
+                                        </a>
+                                    </li>
+                                    {% else %}
+                                    <li
+                                        class="nav-item">
+                                        <a
+                                            class="nav-link active"
+                                            href="{{path('app_login')}}">
+                                            Connexion
+                                        </a>
+                                    </li>
+                                    <li
+                                        class="nav-item">
+                                        <a
+                                            class="nav-link active"
+                                            href="{{path('app_register')}}">
+                                            Inscription
+                                        </a>
+                                    </li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </div>
