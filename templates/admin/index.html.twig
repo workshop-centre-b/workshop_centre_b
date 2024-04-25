@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<div>
+<h1 class="text-center mt-2 mb-5">Menu administrateur</h1>
+<div class="d-flex justify-content-center gap-5">
+    {# card #}
+    <a class="text-decoration-none" href="{{ path('app_user_index_personnel') }}">
+        <div class="card" style="width: 18rem;">
+        <img src="{{ asset('/imgs/personnel.png') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Liste des employés</h5>
+
+            </div>
+        </div>
+    </a>
+    {# end card #}
+    {# card #}
+    <a class="text-decoration-none" href="{{ path('app_user_index_eleve') }}">
+        <div class="card" style="width: 18rem;">
+        <img src="{{ asset('/imgs/eleve.png') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Liste des elèves</h5>
+
+            </div>
+        </div>
+    </a>
+    {# end card #}
+    {# card #}
+    <a class="text-decoration-none" href="app_user_new">
+        <div class="card" style="width: 18rem;">
+        <img src="{{ asset('/imgs/ajouter.png') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Ajouter un employé</h5>
+
+            </div>
+        </div>
+    </a>
+    {# end card #}
+</div>
+    <div class="text-center mt-5">
+        <a href="{{ path('app_home') }}">
+            <button class="btn btn-dark">Retour</button>
+        </a>
+    </div>
+</div>
+{% endblock %}
