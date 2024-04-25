@@ -5,10 +5,12 @@ namespace App\Form;
 use App\Entity\Menu;
 use App\Entity\Plat;
 use App\Repository\PlatRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use PhpParser\Node\Expr\AssignOp\Div;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\DependencyInjection\Parameter;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
@@ -68,7 +70,9 @@ class MenuType extends AbstractType
                 'query_builder' => function (PlatRepository $er) {
                     return $er->createQueryBuilder('p')
                         ->where('p.type = :type')
-                        ->setParameter('type', 'Plat');
+                        ->andWhere('p.regime = :regime')
+                        ->setParameter('type', 'Plat')
+                        ->setParameter('regime', 'Viande');
                 },
             ])
             ->add('platDeux', EntityType::class, [
@@ -83,8 +87,10 @@ class MenuType extends AbstractType
                 'choice_label' => 'nom',
                 'query_builder' => function (PlatRepository $er) {
                     return $er->createQueryBuilder('p')
-                        ->where('p.type = :type')
-                        ->setParameter('type', 'Plat');
+                    ->where('p.type = :type')
+                    ->andWhere('p.regime = :regime')
+                    ->setParameter('type', 'Plat')
+                    ->setParameter('regime', 'Poisson');
                 },
             ])
             ->add('platTrois', EntityType::class, [
@@ -99,8 +105,10 @@ class MenuType extends AbstractType
                 'choice_label' => 'nom',
                 'query_builder' => function (PlatRepository $er) {
                     return $er->createQueryBuilder('p')
-                        ->where('p.type = :type')
-                        ->setParameter('type', 'Plat');
+                    ->where('p.type = :type')
+                    ->andWhere('p.regime = :regime')
+                    ->setParameter('type', 'Plat')
+                    ->setParameter('regime', 'Végétarien');
                 },
             ])
             ->add('dessert', EntityType::class, [
