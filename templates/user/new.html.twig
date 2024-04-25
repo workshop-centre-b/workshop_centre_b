@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mt-2 mb-5">Ajouter un employé</h1>
+
+    {{ include('user/_form.html.twig') }}
+
+    <a href="{{ path('app_user_index_personnel') }}">
+        <button class="btn btn-dark">Liste du personnel</button>
+    </a>
+    <a href="{{ path('app_user_index_eleve') }}">
+        <button class="btn btn-dark">Liste des elèves</button>
+    </a>
+{% endblock %}
