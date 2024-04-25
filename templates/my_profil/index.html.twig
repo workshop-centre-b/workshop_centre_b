@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MyProfilController!{% endblock %}
+
+{% block body %}
+<div>
+    <h1 class="text-center mt-5 mb-5">Mon profil</h1>
+    <div class="w-25 m-auto text-center">
+        {# card #}
+        <div class="card">
+            <div class="card-body">
+                <p><span>NOM : </span>{{ app.user.nom }}</p>
+            </div>
+        </div>
+        {# end card #}
+        {# card #}
+        <div class="card">
+            <div class="card-body">
+                <p><span>PRENOM : </span>{{ app.user.prenom }}</p>
+            </div>
+        </div>
+        {# end card #}
+        {# card #}
+        <div class="card">
+            <div class="card-body">
+                <p><span>EMAIL : </span>{{ app.user.email }}</p>
+            </div>
+        </div>
+        {# end card #}
+    </div>
+    <div class="text-center mt-5">
+        <a href="{{ path('app_my_profil_edit', {id : app.user.id}) }}">
+            <button class="btn btn-success">Modifier mon profil</button>
+        </a>
+        <a href="{{ path('app_my_profil_reset_password', {id : app.user.id}) }}">
+            <button class="btn btn-warning">Modifier mon mot de passe</button>
+        </a>
+        <a href="{{ path('app_home') }}">
+            <button class="btn btn-dark">Retour</button>
+        </a>
+    </div>
+</div>
+{% endblock %}
