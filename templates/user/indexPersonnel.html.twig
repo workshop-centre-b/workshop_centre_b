@@ -8,20 +8,19 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Email</th>
-                <th>Roles</th>
+                <th>Rôle</th>
                 <th>Nom</th>
                 <th>Prenom</th>
-                <th>CreatedAt</th>
-                <th>actions</th>
+                <th>Date d'inscription</th>
+                <th>Statut</th>
+                <th>action</th>
             </tr>
         </thead>
         <tbody>
         {% for user in users %}
             {% if user.roles|json_encode == '["ROLE_PERSONNEL","ROLE_USER"]' or user.roles|json_encode == '["ROLE_ADMIN","ROLE_USER"]' %}
             <tr>
-                <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
                 {% if user.roles|json_encode == '["ROLE_PERSONNEL","ROLE_USER"]' %}
                 <td>Membre du personnel</td>
@@ -30,12 +29,16 @@
                 {% endif %}
                 <td>{{ user.nom }}</td>
                 <td>{{ user.prenom }}</td>
-                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td class="d-flex gap-1">
+                <td>{{ user.createdAt ? user.createdAt|date('d/m/Y H:i') : '' }}</td>
+                {% if user.statut == 1 %}
+                <td>Actif</td>
+                {% else %}
+                <td>Inactif</td>
+                {% endif %}
+                <td>
                     <a href="{{ path('app_user_edit', {'id': user.id}) }}">
-                        <button class="btn btn-warning">Modifier la fiche</button>
+                        <button class="btn btn-warning">Modifier le statut</button>
                     </a>
-                    {{ include('user/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% endif %}
@@ -46,12 +49,13 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_user_new') }}">
-        <button class="btn btn-primary">Ajouter un membre du personnel</button>
-    </a>
-    
-    <a href="{{ path('app_admin') }}">
-        <button class="btn btn-dark">Retour</button>
-    </a>
+    <div class="text-center">
+        <a href="{{ path('app_user_new') }}">
+            <button class="btn btn-primary">Ajouter un membre du personnel</button>
+        </a>
+        
+        <a href="{{ path('app_admin') }}">
+            <button class="btn btn-dark">Retour</button>
+        </a>
+    </div>
 {% endblock %}

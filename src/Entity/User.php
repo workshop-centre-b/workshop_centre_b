@@ -45,6 +45,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $formation = null;
 
+    #[ORM\Column]
+    private ?bool $statut = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -163,6 +166,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setFormation(?string $formation): static
     {
         $this->formation = $formation;
+
+        return $this;
+    }
+
+    public function isStatut(): ?bool
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(bool $statut): static
+    {
+        $this->statut = $statut;
 
         return $this;
     }
