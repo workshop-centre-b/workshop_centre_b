@@ -20,19 +20,19 @@ class PlatType extends AbstractType
             ->add('nom', TextType::class, [
                 'label' => "Nom",
                 'label_attr' => [
-                    'class' => ''
+                    'class' => 'form-label label first'
                 ],
                 'attr' => [
-                    'class' => ''
+                    'class' => 'form-control control'
                 ]
             ])
             ->add('composition', TextareaType::class, [
                 'label' => "Composition",
                 'label_attr' => [
-                    'class' => ''
+                    'class' => 'form-label label'
                 ],
                 'attr' => [
-                    'class' => ''
+                    'class' => 'form-control control'
                 ]
             ])
             ->add('type', ChoiceType::class, [
@@ -41,6 +41,12 @@ class PlatType extends AbstractType
                     'Entree' => 'Entree',
                     'Plat' => 'Plat',
                     'Dessert' => 'Dessert'
+                ],
+                'label_attr' => [
+                    'class' => 'form-label label'
+                ],
+                'attr' => [
+                    'class' => 'form-control control'
                 ]
             ])
             ->add('regime', ChoiceType::class, [
@@ -52,10 +58,10 @@ class PlatType extends AbstractType
                     'Autre' => 'Autre'
                 ],
                 'label_attr' => [
-                    'class' => ''
+                    'class' => 'form-label label'
                 ],
                 'attr' => [
-                    'class' => ''
+                    'class' => 'form-control control'
                 ]
             ])
             ->add('allergenes', EntityType::class, [
@@ -65,10 +71,10 @@ class PlatType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
                 'label_attr' => [
-                    'class' => ''
+                    'class' => 'form-label label'
                 ],
                 'attr' => [
-                    'class' => ''
+                    'class' => 'form-control control test'
                 ]
             ])
         ;
