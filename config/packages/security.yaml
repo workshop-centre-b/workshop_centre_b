@@ -14,6 +14,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            pattern: ^/
             lazy: true
             provider: app_user_provider
             custom_authenticator: App\Security\AppCustomAuthenticator
@@ -21,6 +22,7 @@ security:
                 path: app_logout
                 # where to redirect after logout
                 # target: app_any_route
+            user_checker: App\Security\UserChecker
 
             remember_me:
                 secret: '%kernel.secret%'

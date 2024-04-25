@@ -227,3 +227,14 @@ body {
 .test input {
     flex: 0 0 50%;
 }
+
+/* Form user crud */
+#user div {
+    width: 50%;
+    margin: auto;
+}
+
+#user_statut div {
+    width: 50%;
+    margin: auto;
+}

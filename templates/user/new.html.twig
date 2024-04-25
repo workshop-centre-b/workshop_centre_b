@@ -6,8 +6,9 @@
     <h1 class="text-center mt-2 mb-5">Ajouter un employé</h1>
 
     {{ include('user/_form.html.twig') }}
-
-    <a href="{{ path('app_admin') }}">
-        <button class="btn btn-dark">retour</button>
-    </a>
+    <div class="text-center">
+        <a href="{{ path('app_admin') }}">
+            <button class="btn btn-dark">retour</button>
+        </a>
+    </div>
 {% endblock %}

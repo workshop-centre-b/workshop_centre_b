@@ -21,6 +21,7 @@ class RegistrationController extends AbstractController
     {
         $user = new User();
         $role = ['ROLE_ELEVE'];
+        $status = true;
         $form = $this->createForm(RegistrationFormType::class, $user);
         $createdAt = new \DatetimeImmutable('now');
         $form->handleRequest($request);
@@ -28,6 +29,7 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setCreatedAt($createdAt);
             $user->setRoles($role);
+            $user->setStatut($status);
             // encode the plain password
             $user->setPassword(
                     $userPasswordHasher->hashPassword(
