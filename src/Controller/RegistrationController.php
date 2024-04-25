@@ -20,12 +20,14 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
+        $role = ['ROLE_ELEVE'];
         $form = $this->createForm(RegistrationFormType::class, $user);
         $createdAt = new \DatetimeImmutable('now');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setCreatedAt($createdAt);
+            $user->setRoles($role);
             // encode the plain password
             $user->setPassword(
                     $userPasswordHasher->hashPassword(
