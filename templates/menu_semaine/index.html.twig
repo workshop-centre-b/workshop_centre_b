@@ -1,0 +1,277 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MenuSemaineController!{% endblock %}
+
+{% block body %}
+<div>
+    <h1 class="text-center mt-5 mb-5">Menu de la semaine</h1>
+    <p class="text-center fs-4">Midi</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap mt-5 mb-5">
+        {% for menu in menus %}
+        {% if menu.service == 'Midi' %}
+        {# card #}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Le {{ menu.date ? menu.date|date('d/m/Y') : '' }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Service du {{ menu.service }}</h6>
+                <h6 class="card-subtitle mb-2 mt-2 text-body-secondary">Entrée</h6>
+                {# Accordion #}
+                <div class="accordion" id="accordionExample1">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        {{ menu.entree.nom }}
+                    </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample1">
+                    <div class="accordion-body">
+                        <p>composition : {{ menu.entree.composition }}</p>
+                        <p>Allergènes potentiels : </p>
+                        <ul>
+                            {% for allergene in menu.entree.allergenes %}
+                            <li>{{ allergene.nom }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {# end Accordion #}
+                <h6 class="card-subtitle mb-2 mt-2 text-body-secondary">Plats (Au choix)</h6>
+                {# Accordion #}
+                <div class="accordion" id="accordionExample2">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        {{ menu.platUn.nom }}
+                    </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+                    <div class="accordion-body">
+                        <p>composition : {{ menu.platUn.composition }}</p>
+                        <p>Allergènes potentiels : </p>
+                        <ul>
+                            {% for allergene in menu.platUn.allergenes %}
+                            <li>{{ allergene.nom }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {# end Accordion #}
+                {# Accordion #}
+                <div class="accordion" id="accordionExample3">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTree" aria-expanded="true" aria-controls="collapseTree">
+                        {{ menu.platDeux.nom }}
+                    </button>
+                    </h2>
+                    <div id="collapseTree" class="accordion-collapse collapse" data-bs-parent="#accordionExample3">
+                    <div class="accordion-body">
+                        <p>composition : {{ menu.platDeux.composition }}</p>
+                        <p>Allergènes potentiels : </p>
+                        <ul>
+                            {% for allergene in menu.platDeux.allergenes %}
+                            <li>{{ allergene.nom }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {# end Accordion #}
+                {# Accordion #}
+                <div class="accordion" id="accordionExample4">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                        {{ menu.platTrois.nom }}
+                    </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample4">
+                    <div class="accordion-body">
+                        <p>composition : {{ menu.platTrois.composition }}</p>
+                        <p>Allergènes potentiels : </p>
+                        <ul>
+                            {% for allergene in menu.platTrois.allergenes %}
+                            <li>{{ allergene.nom }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {# end Accordion #}
+                <h6 class="card-subtitle mb-2 mt-2 text-body-secondary">Dessert</h6>
+                {# Accordion #}
+                <div class="accordion" id="accordionExample4">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseF" aria-expanded="true" aria-controls="collapseF">
+                        {{ menu.dessert.nom }}
+                    </button>
+                    </h2>
+                    <div id="collapseF" class="accordion-collapse collapse" data-bs-parent="#accordionExample4">
+                    <div class="accordion-body">
+                        <p>composition : {{ menu.dessert.composition }}</p>
+                        <p>Allergènes potentiels : </p>
+                        <ul>
+                            {% for allergene in menu.dessert.allergenes %}
+                            <li>{{ allergene.nom }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {# end Accordion #}
+                <a href="#">
+                    <button class="btn btn-success mt-2">Inscription</button>
+                </a>
+            </div>
+        </div>
+        {# end card #}
+        {% endif %}
+        {% endfor %}
+    </div>
+    {# -------------------------- #}
+    <p class="text-center fs-4">Soir</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap mt-5">
+        {% for menu in menus %}
+        {% if menu.service == 'Soir' %}
+        {# card #}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Le {{ menu.date ? menu.date|date('d/m/Y') : '' }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Service du {{ menu.service }}</h6>
+                <h6 class="card-subtitle mb-2 mt-2 text-body-secondary">Entrée</h6>
+                {# Accordion #}
+                <div class="accordion" id="accordionExample1">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        {{ menu.entree.nom }}
+                    </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample1">
+                    <div class="accordion-body">
+                        <p>composition : {{ menu.entree.composition }}</p>
+                        <p>Allergènes potentiels : </p>
+                        <ul>
+                            {% for allergene in menu.entree.allergenes %}
+                            <li>{{ allergene.nom }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {# end Accordion #}
+                <h6 class="card-subtitle mb-2 mt-2 text-body-secondary">Plats (Au choix)</h6>
+                {# Accordion #}
+                <div class="accordion" id="accordionExample2">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        {{ menu.platUn.nom }}
+                    </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+                    <div class="accordion-body">
+                        <p>composition : {{ menu.platUn.composition }}</p>
+                        <p>Allergènes potentiels : </p>
+                        <ul>
+                            {% for allergene in menu.platUn.allergenes %}
+                            <li>{{ allergene.nom }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {# end Accordion #}
+                {# Accordion #}
+                <div class="accordion" id="accordionExample3">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTree" aria-expanded="true" aria-controls="collapseTree">
+                        {{ menu.platDeux.nom }}
+                    </button>
+                    </h2>
+                    <div id="collapseTree" class="accordion-collapse collapse" data-bs-parent="#accordionExample3">
+                    <div class="accordion-body">
+                        <p>composition : {{ menu.platDeux.composition }}</p>
+                        <p>Allergènes potentiels : </p>
+                        <ul>
+                            {% for allergene in menu.platDeux.allergenes %}
+                            <li>{{ allergene.nom }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {# end Accordion #}
+                {# Accordion #}
+                <div class="accordion" id="accordionExample4">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                        {{ menu.platTrois.nom }}
+                    </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample4">
+                    <div class="accordion-body">
+                        <p>composition : {{ menu.platTrois.composition }}</p>
+                        <p>Allergènes potentiels : </p>
+                        <ul>
+                            {% for allergene in menu.platTrois.allergenes %}
+                            <li>{{ allergene.nom }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {# end Accordion #}
+                <h6 class="card-subtitle mb-2 mt2 text-body-secondary">Dessert</h6>
+                {# Accordion #}
+                <div class="accordion" id="accordionExample4">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseF" aria-expanded="true" aria-controls="collapseF">
+                        {{ menu.dessert.nom }}
+                    </button>
+                    </h2>
+                    <div id="collapseF" class="accordion-collapse collapse" data-bs-parent="#accordionExample4">
+                    <div class="accordion-body">
+                        <p>composition : {{ menu.dessert.composition }}</p>
+                        <p>Allergènes potentiels : </p>
+                        <ul>
+                            {% for allergene in menu.dessert.allergenes %}
+                            <li>{{ allergene.nom }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {# end Accordion #}
+                <a href="#">
+                    <button class="btn btn-success mt-2">Inscription</button>
+                </a>
+            </div>
+        </div>
+        {# end card #}
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="text-center mt-5">
+        <a href="{{ path('app_home') }}">
+            <button class="btn btn-dark">Retour</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

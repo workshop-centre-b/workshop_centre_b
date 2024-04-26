@@ -43,6 +43,8 @@
                                 Mon profil
                             {% elseif app.request.attributes.get('_route') == 'app_my_profil_reset_password' %}
                                 Mon profil
+                            {% elseif app.request.attributes.get('_route') == 'app_menu_semaine' %}
+                                Menu de la semaine
                             {% endif %}
                         </a>
                         <div
@@ -89,7 +91,7 @@
                                         class="nav-item">
                                         <a
                                             class="nav-link active"
-                                            href="#">
+                                            href="{{ path('app_menu_semaine') }}">
                                             Consulter le menu
                                         </a>
                                     </li>
