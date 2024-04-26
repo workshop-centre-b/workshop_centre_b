@@ -3,13 +3,23 @@
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
-    <h1 class="text-center mt-2 mb-5">Fiche de {{ user.nom }} {{ user.prenom }}</h1>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="card-body">
+                        <h1 class="text-center mt-2 mb-5">Fiche de {{ user.nom }} {{ user.prenom }}</h1>
 
-    {{ include('user/_form.html.twig', {'button_label': 'Valider'}) }}
+                        {{ include('user/_form.html.twig', {'button_label': 'Valider'}) }}
 
-    <div class="text-center">
-        <a href="{{ path('app_admin') }}">
-            <button class="btn btn-dark">Retour</button>
-        </a>
+                        <div class="text-center">
+                            <a href="{{ path('app_admin') }}">
+                                <button class="btn btn-dark">Retour</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
