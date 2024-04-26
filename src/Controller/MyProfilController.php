@@ -14,8 +14,10 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\ExpressionLanguage\Expression;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/my_profil')]
+#[Isgranted(new Expression('is_granted("ROLE_ADMIN") or is_granted("ROLE_PERSONNEL") or is_granted("ROLE_ELEVE")'))]
 class MyProfilController extends AbstractController
 {
     #[Route('/', name: 'app_my_profil')]

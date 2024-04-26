@@ -6,12 +6,15 @@ use App\Entity\Plat;
 use App\Form\PlatType;
 use App\Repository\PlatRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\ExpressionLanguage\Expression;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/plat')]
+#[Isgranted(new Expression('is_granted("ROLE_ADMIN") or is_granted("ROLE_PERSONNEL")'))]
 class PlatController extends AbstractController
 {
     #[Route('/', name: 'app_plat_index', methods: ['GET'])]

@@ -6,12 +6,15 @@ use App\Entity\Allergen;
 use App\Form\AllergenType;
 use App\Repository\AllergenRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\ExpressionLanguage\Expression;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/allergen')]
+#[Isgranted(new Expression('is_granted("ROLE_ADMIN") or is_granted("ROLE_PERSONNEL")'))]
 class AllergenController extends AbstractController
 {
     #[Route('/', name: 'app_allergen_index', methods: ['GET'])]

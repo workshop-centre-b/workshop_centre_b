@@ -14,7 +14,7 @@
                         <a
                             class="navbar-brand">
                             {% if app.request.attributes.get('_route') == 'app_home' %}
-                                Home
+                                Accueil
                             {% elseif app.request.attributes.get('_route') == 'app_menu_index' %}
                                 Gestion des Menus
                             {% elseif app.request.attributes.get('_route') == 'app_plat_index' %}
@@ -73,7 +73,7 @@
                                             class="nav-link active"
                                             aria-current="page"
                                             href="{{path('app_home')}}">
-                                            Home
+                                            Accueil
                                         </a>
                                     </li>
                                     {% if app.user %}
@@ -85,6 +85,15 @@
                                             Mon profil
                                         </a>
                                     </li>
+                                    <li
+                                        class="nav-item">
+                                        <a
+                                            class="nav-link active"
+                                            href="#">
+                                            Consulter le menu
+                                        </a>
+                                    </li>
+                                    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PERSONNEL') %}
                                     <li
                                         class="nav-item">
                                         <a
@@ -101,6 +110,8 @@
                                             Gestion des Plats
                                         </a>
                                     </li>
+                                    {% endif %}
+                                    {% if is_granted('ROLE_ADMIN') %}
                                     <li
                                         class="nav-item">
                                         <a
@@ -109,6 +120,7 @@
                                             Menu administrateur
                                         </a>
                                     </li>
+                                    {% endif %}
                                     <li
                                         class="nav-item">
                                         <a
